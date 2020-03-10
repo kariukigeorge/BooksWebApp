@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WaterMS.Models.Books>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Books</h2>
+
+<p>
+    <a asp-action="CreateBook">Create New Book</a>
+</p>
+<table class="table">
+    <tr>
+        <th>Books ID</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>ISBN Number</th>
+        <th>URL</th>
+        <th>Availability</th>
+        <th></th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.BooksID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.author)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.isbn_number)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.url)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.status)
+    </td>
+    <td>
+        <button class=" btn btn-primary btn-sm "><a asp-controller="Home" asp-action="EditBook" asp-route-id="@item.BooksID" style="color:black">Edit</a></button> |
+        <button class="btn-primary btn-sm  "><a asp-controller="Home" asp-action="BookDetails" asp-route-id="@item.BooksID" style="color:black">Details</a></button> |
+        <button class="btn btn-primary btn-sm "><a asp-controller="Home" asp-action="Delete" asp-route-id="@item.BooksID" style="color:black">Delete</a></button>
+    </td>
+</tr>
+    }
+</table>

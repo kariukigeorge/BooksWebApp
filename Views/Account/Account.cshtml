@@ -1,0 +1,24 @@
+﻿@model WaterMS.Models.Users;
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sign In</h1>
+</div>
+<div class="container" style="padding-top:25px; color:black; ">
+    <div class="col-sm-12 float-left">
+        <form class="form-group" asp-controller="Account" asp-action="SignIn">
+            <label for="email">Email</label>
+            <input type="email" asp-for="email" class="form-control" required />
+            <label for="password">Password</label>
+            <input type="password" asp-for="password" class="form-control" required /><br />
+            <button class="form-control btn btn-primary">Sign In</button>
+            <a class="nav-link text-primary" asp-area="" asp-controller="Register" asp-action="Register">Register</a>
+            <a class="nav-link text-primary" asp-area="" asp-controller="Forgot_password" asp-action="Forgot_password">Forgot Password?</a>
+
+        </form>
+    </div>
+</div>
+
+

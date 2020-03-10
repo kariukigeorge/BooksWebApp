@@ -1,0 +1,63 @@
+﻿@model WaterMS.Models.Books;
+@{
+    ViewData["Title"] = "BookDetails";
+}
+
+<h1>BookDetails</h1>
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.user.Book)
+</dt>
+<dd class="col-sm-10">
+    <table class="table">
+        <tr>
+            <th>
+                User ID
+            </th>
+            <th>
+                User Name
+            </th>
+            <th>
+                Date Created
+            </th>
+            <th>
+                Book Title
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Isbn Number
+            </th>
+            <th>
+                Url
+            </th>
+        </tr>
+        @foreach (var item in Model.user.Book)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user.UsersID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user.first_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user.date_created)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isbn_number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.url)
+                </td>
+            </tr>
+        }
+    </table>
+</dd>
+

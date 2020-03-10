@@ -1,0 +1,24 @@
+﻿@model WaterMS.Models.Books
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container" style="padding-top:25px; color:black;">
+    <div class="col-sm-8">
+        <form class="form-group" method="post" >
+            <label>User ID:</label>
+            <input type="text" asp-for="UsersID" class="form-control" required />
+            <label>Books ID:</label>
+            <input type="text" asp-for="BooksID" class="form-control" required />
+            <label>Book Name:</label>
+            <input type="text" asp-for="name" class="form-control" required />
+            <label>Author name:</label>
+            <input type="text" asp-for="author" class="form-control" required />
+            <label>ISBN Number:</label>
+            <input type="text" asp-for="isbn_number" class="form-control" required />
+            <label>Url:</label><br />
+            <input type="text" asp-for="url" class="form-control" required /><br />
+            <button class="form-control btn btn-primary"  asp-controller="Home" asp-action="CreateBk">Create</button><br />
+        </form>
+    </div>
+</div>
+
