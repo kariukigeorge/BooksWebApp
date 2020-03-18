@@ -11,10 +11,7 @@
     <table class="table">
         <tr>
             <th>
-                User ID
-            </th>
-            <th>
-                User Name
+               Created By
             </th>
             <th>
                 Date Created
@@ -35,9 +32,6 @@
         @foreach (var item in Model.user.Book)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.user.UsersID)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.user.first_name)
                 </td>
@@ -61,3 +55,4 @@
     </table>
 </dd>
 
+m

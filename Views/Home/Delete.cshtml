@@ -8,8 +8,7 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>User ID</th>
-            <th>First Name</th>
+            <th>Created By</th>
             <th>Title of the Book</th>
             <th>Aurthor</th>
             <th>ISBN NUMBER</th>
@@ -22,7 +21,6 @@
         {
             
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.user.UsersID)</td>
             <td> @Html.DisplayFor(modelItem => item.user.first_name)</td>
             <td> @Html.DisplayFor(modelItem => item.name)</td>
             <td>
@@ -36,8 +34,11 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.status)
-            </td><br />
-            <button class="btn btn-primary btn-sm "><a asp-controller="Home" asp-action="DeleteConfirmed" asp-route-id="@item.BooksID" style="color:black">Delete</a></button><br />
+            </td>
+            <br />
+            <button class="btn btn-primary btn-sm "><a asp-controller="Home" asp-action="DeleteConfirmed" asp-route-id="@item.BooksID" style="color:black">Delete</a></button>
+            <button class="btn btn-primary btn-sm "><a asp-controller="Home" asp-action="Deactivate" asp-route-id="@item.BooksID" style="color:black">Deactivate</a></button>
+            <br />
         </tr>
         }
     </tbody>

@@ -2,7 +2,8 @@
   "runtimeOptions": {
     "additionalProbingPaths": [
       "C:\\Users\\KEPHIS\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\KEPHIS\\.nuget\\packages"
+      "C:\\Users\\KEPHIS\\.nuget\\packages",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }
 }

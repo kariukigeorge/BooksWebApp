@@ -1,48 +1,44 @@
 ﻿@model WaterMS.Models.Books
+
 @{
     ViewData["Title"] = "Edit";
 }
-@{ string id = Model.BooksID;};
+@{ string id = Model.BooksID;}
 <h1>Edit</h1>
 <div class="container" style="padding-top:25px; color:black;">
-    <div class="form-horizontal">
+    <div class="form-group">
+        @Html.HiddenFor(model => model.BooksID)
+        @Html.HiddenFor(model => model.UsersID)
+        <form method="post" class="form-horizontal" asp-controller="Home" asp-action="Update" asp-route-id="@id">
             <div class="form-group">
-                @Html.LabelFor(model => model.BooksID, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.BooksID)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.name)
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = " text-center" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.user.UsersID, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.user.UsersID)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.author)
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.author, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.name, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.name)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.isbn_number)
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.isbn_number, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.author, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.author)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.url)
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.url, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.isbn_number, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.isbn_number)
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.url, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.url)
-                </div>
-            </div>
-            <button class=" btn btn-primary btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@id">Update</button>
+                <button class=" btn btn-primary btn-sm">Update</button>
+</form>
 
     </div>
 </div>

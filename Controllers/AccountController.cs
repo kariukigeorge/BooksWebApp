@@ -30,10 +30,10 @@ namespace WaterMS.Controllers
         public IActionResult SignIn(Users user)
         {
             string pass;
-            pass = hashPassword(user.password);
+            pass = Base64Encode(user.password);
             try
             {
-                Users us = _context.Users.Where(u => u.email == user.email && u.password == user.password).First();
+                Users us = _context.Users.Where(u => u.email == user.email && u.password == pass).First();
                 if (us != null)
                 {
                     return RedirectToAction("Home", "Home", new { area = "" });
@@ -45,27 +45,10 @@ namespace WaterMS.Controllers
             }
             return RedirectToAction("Account", "Account", new { area = "" });
         }
-
-        public String hashPassword(string pass)
+        public static string Base64Encode(string plainText)
         {
-
-            // generate a 128-bit salt using a secure PRNG
-            byte[] salt = new byte[128 / 8];
-            using (var rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(salt);
-            }
-            Console.WriteLine($"Salt: {Convert.ToBase64String(salt)}");
-
-            // derive a 256-bit subkey (use HMACSHA1 with 10,000 iterations)
-            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                password: pass,
-                salt: salt,
-                prf: KeyDerivationPrf.HMACSHA1,
-                iterationCount: 10000,
-                numBytesRequested: 256 / 8));
-
-            return hashed;
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
         }
     }
 }

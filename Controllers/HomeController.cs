@@ -144,5 +144,15 @@ namespace WaterMS.Controllers
             return RedirectToAction("Home", "Home", new { area = "" });
 
         }
+
+        public IActionResult Deactivate(string? id)
+        {
+            var bookToDeactivate = _context.Books.Find(id);
+            bookToDeactivate.status = "Deleted";
+            _context.Update(bookToDeactivate);
+            _context.SaveChanges();
+
+            return RedirectToAction("Home", "Home", new { area = "" });
+        }
     }
 }
